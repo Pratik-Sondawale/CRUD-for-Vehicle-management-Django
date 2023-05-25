@@ -1,0 +1,15 @@
+<h1>Vehicle List</h1>
+
+<a href="{% url 'vehicle_create' %}">Add Vehicle</a>
+
+<ul>
+  {% for vehicle in vehicles %}
+    <li>
+      {{ vehicle.vehicle_number }} - {{ vehicle.vehicle_model }}
+      <a href="{% url 'vehicle_update' vehicle.id %}">Edit</a>
+      <a href="{% url 'vehicle_delete' vehicle.id %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No vehicles found.</li>
+  {% endfor %}
+</ul>
